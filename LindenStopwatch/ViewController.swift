@@ -11,22 +11,21 @@ import UIKit
 class ViewController: UIViewController {
     
     var timer = NSTimer()
+    var counter = 0
 
     @IBOutlet weak var startButton: UIButton!
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var stopButton: UIButton!
     
     @IBAction func startTime(sender: AnyObject) {
-        timeLabel.text = "start"
         alternateButtons()
         validateTimer()
     }
     
     @IBAction func stopTime(sender: AnyObject) {
-        timeLabel.text = "stop"
         alternateButtons()
         timer.invalidate()
-        print("stop")
+        counter = 0
     }
     
     override func viewDidLoad() {
@@ -55,7 +54,8 @@ class ViewController: UIViewController {
     }
     
     func updateTime() {
-        print("wow")
+        counter += 1
+        timeLabel.text = "\(counter)"
     }
 }
 
