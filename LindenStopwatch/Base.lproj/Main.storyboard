@@ -76,6 +76,8 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="startButton" destination="657-fP-vXZ" id="X30-AN-Ebi"/>
+                        <outlet property="stopButton" destination="8B6-4p-kc7" id="KZ5-Em-oRa"/>
                         <outlet property="timeLabel" destination="ffJ-rg-yEX" id="2Gr-4U-PrA"/>
                     </connections>
                 </viewController>
