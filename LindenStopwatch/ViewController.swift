@@ -10,6 +10,16 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var timeLabel: UILabel!
+    
+    @IBAction func startTime(sender: AnyObject) {
+        timeLabel.text = "start"
+    }
+    
+    @IBAction func stopTime(sender: AnyObject) {
+        timeLabel.text = "stop"
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
