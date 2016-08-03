@@ -55,7 +55,32 @@ class ViewController: UIViewController {
     
     func updateTime() {
         counter += 1
-        timeLabel.text = "\(counter)"
+        let (numMinutes, numSeconds, numMilliseconds) = calculateTimeUnits()
+        
+        // concatenate minutes, seconds, and milliseconds, then assign them to the UILabel
+        timeLabel.text = "\(numMinutes):\(numSeconds):\(numMilliseconds)"
+    }
+    
+    func calculateTimeUnits() -> (String, String, String) {
+        var remainingCounter = counter
+        
+        // calculate elapsed minutes
+        let minutes = remainingCounter / (60 * 100)
+        remainingCounter -= minutes * (60 * 100)
+        
+        // calculate elapsed seconds
+        let seconds = remainingCounter / 100
+        remainingCounter -= seconds * 100
+        
+        // calculate elasped milliseconds
+        let milliseconds = remainingCounter
+        
+        // add the leading zero for minutes, seconds, and milliseconds, then store them as string constants
+        let formattedStringMinutes = String(format: "%02d", minutes)
+        let formattedStringSeconds = String(format: "%02d", seconds)
+        let formattedStringMilliseconds = String(format: "%02d", milliseconds)
+        
+        return (formattedStringMinutes, formattedStringSeconds, formattedStringMilliseconds)
     }
 }
 
